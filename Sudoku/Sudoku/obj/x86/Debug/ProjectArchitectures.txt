@@ -1,0 +1,1 @@
+C:\Users\novoz\source\repos\Sudoku\Sudoku\Sudoku.csproj;x86
