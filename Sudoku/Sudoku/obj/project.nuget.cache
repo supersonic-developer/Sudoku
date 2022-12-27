@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "KFojw24BquPrDNz2JpysHaFqhrTz5Mr6twPD/qqIbjnffvGx+W/7eMx8eeoy/cdP+rUiJtWAtOZzkm8R3R+GGQ==",
+  "dgSpecHash": "3wrqIEXODyw/nERBeH90ZgYDx9Y7cGZzx/x2Bqb5OOhcP7LPB4EfmMT2pqo9Q7iDDNBJCjJkNeK1opUYj2KknA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\novoz\\source\\repos\\Sudoku\\Sudoku\\Sudoku.csproj",
+  "projectFilePath": "C:\\Users\\novoz\\git-repos\\Sudoku\\Sudoku\\Sudoku\\Sudoku.csproj",
   "expectedPackageFiles": [
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\microsoft.net.native.compiler\\2.2.12-rel-31116-00\\microsoft.net.native.compiler.2.2.12-rel-31116-00.nupkg.sha512",
     "C:\\Program Files (x86)\\Microsoft SDKs\\UWPNuGetPackages\\microsoft.net.uwpcoreruntimesdk\\2.2.14\\microsoft.net.uwpcoreruntimesdk.2.2.14.nupkg.sha512",

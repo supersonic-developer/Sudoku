@@ -10,7 +10,7 @@
     <PackageArchitecture>x86</PackageArchitecture>
     <PackageIdentityName>50dae731-e87f-46c1-953b-f7cbe7b8e009</PackageIdentityName>
     <PackageIdentityPublisher>CN=novoz</PackageIdentityPublisher>
-    <IntermediateOutputPath>C:\Users\novoz\source\repos\Sudoku\Sudoku\obj\x86\Debug\</IntermediateOutputPath>
+    <IntermediateOutputPath>C:\Users\novoz\git-repos\Sudoku\Sudoku\Sudoku\obj\x86\Debug\</IntermediateOutputPath>
     <RemoteDeploymentType>
     </RemoteDeploymentType>
     <PackageRegistrationPath>
@@ -18,7 +18,7 @@
     <RemoveNonLayoutFiles>true</RemoveNonLayoutFiles>
     <DeployOptionalPackages>false</DeployOptionalPackages>
     <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
-    <LayoutDir>C:\Users\novoz\source\repos\Sudoku\Sudoku\bin\x86\Debug\AppX</LayoutDir>
+    <LayoutDir>C:\Users\novoz\git-repos\Sudoku\Sudoku\Sudoku\bin\x86\Debug\AppX</LayoutDir>
     <RegisteredManifestChecksum>D511CE0A1CEAB3191B9F92FEADE551D2E06AF04D2FC2E2AA9B69DFC79819483E</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>50dae731-e87f-46c1-953b-f7cbe7b8e009_1.0.0.0_x86__tn6n0rrw5v0aw</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>50dae731-e87f-46c1-953b-f7cbe7b8e009_tn6n0rrw5v0aw!App</RegisteredUserModeAppID>
@@ -27,16 +27,16 @@
     <RegisteredVersion>1.0.0.0</RegisteredVersion>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\novoz\source\repos\Sudoku\Sudoku\bin\x86\Debug\Core\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\novoz\git-repos\Sudoku\Sudoku\Sudoku\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2022-12-22T12:45:13.283</Modified>
+      <Modified>2022-12-25T09:55:20.807</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\novoz\source\repos\Sudoku\Sudoku\bin\x86\Debug\Sudoku.exe">
+    <AppxPackagedFile Include="C:\Users\novoz\git-repos\Sudoku\Sudoku\Sudoku\bin\x86\Debug\Sudoku.exe">
       <PackagePath>entrypoint\Sudoku.exe</PackagePath>
-      <Modified>2022-12-22T12:45:12.363</Modified>
+      <Modified>2022-12-25T09:55:19.886</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\UWPNuGetPackages\runtime.win10-x86.microsoft.netcore.universalwindowsplatform\6.2.14\runtimes\win10-x86\lib\uap10.0.15138\System.Runtime.dll">
       <PackagePath>System.Runtime.dll</PackagePath>
@@ -50,75 +50,87 @@
       <PackagePath>Microsoft.UI.Xaml.Markup.winmd</PackagePath>
       <Modified>2022-07-15T16:17:36.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\novoz\source\repos\Sudoku\Sudoku\Properties\Default.rd.xml">
-      <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2022-12-21T16:08:24.147</Modified>
+    <AppxPackagedFile Include="C:\Users\novoz\git-repos\Sudoku\Sudoku\Sudoku\Assets\close.png">
+      <PackagePath>Assets\close.png</PackagePath>
+      <Modified>2022-12-23T13:16:50.784</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\novoz\source\repos\Sudoku\Sudoku\Assets\LockScreenLogo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\novoz\git-repos\Sudoku\Sudoku\Sudoku\Assets\undo.png">
+      <PackagePath>Assets\undo.png</PackagePath>
+      <Modified>2022-12-23T12:52:15.609</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\novoz\git-repos\Sudoku\Sudoku\Sudoku\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
       <Modified>2022-11-19T19:26:45.088</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\novoz\source\repos\Sudoku\Sudoku\Assets\SplashScreen.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\novoz\git-repos\Sudoku\Sudoku\Sudoku\Assets\SplashScreen.scale-200.png">
       <PackagePath>Assets\SplashScreen.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2022-11-19T19:26:45.093</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\novoz\source\repos\Sudoku\Sudoku\Assets\Square150x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\novoz\git-repos\Sudoku\Sudoku\Sudoku\Assets\Square150x150Logo.scale-200.png">
       <PackagePath>Assets\Square150x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2022-11-19T19:26:45.094</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\novoz\source\repos\Sudoku\Sudoku\Assets\Square44x44Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\novoz\git-repos\Sudoku\Sudoku\Sudoku\Assets\Square44x44Logo.scale-200.png">
       <PackagePath>Assets\Square44x44Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2022-11-19T19:26:45.095</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\novoz\source\repos\Sudoku\Sudoku\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
+    <AppxPackagedFile Include="C:\Users\novoz\git-repos\Sudoku\Sudoku\Sudoku\Assets\Square44x44Logo.targetsize-24_altform-unplated.png">
       <PackagePath>Assets\Square44x44Logo.targetsize-24_altform-unplated.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2022-11-19T19:26:45.096</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\novoz\source\repos\Sudoku\Sudoku\Assets\StoreLogo.png">
+    <AppxPackagedFile Include="C:\Users\novoz\git-repos\Sudoku\Sudoku\Sudoku\Assets\StoreLogo.png">
       <PackagePath>Assets\StoreLogo.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2022-11-19T19:26:45.097</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\novoz\source\repos\Sudoku\Sudoku\Assets\Wide310x150Logo.scale-200.png">
+    <AppxPackagedFile Include="C:\Users\novoz\git-repos\Sudoku\Sudoku\Sudoku\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2022-11-19T19:26:45.098</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\novoz\source\repos\Sudoku\Sudoku\bin\x86\Debug\Sudoku.xr.xml">
+    <AppxPackagedFile Include="C:\Users\novoz\git-repos\Sudoku\Sudoku\Sudoku\Properties\Default.rd.xml">
+      <PackagePath>Properties\Default.rd.xml</PackagePath>
+      <Modified>2022-12-21T16:08:24.147</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\novoz\git-repos\Sudoku\Sudoku\Sudoku\bin\x86\Debug\Sudoku.xr.xml">
       <PackagePath>Sudoku.xr.xml</PackagePath>
-      <Modified>2022-12-22T12:31:47.904</Modified>
+      <Modified>2022-12-24T20:23:32.601</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\novoz\source\repos\Sudoku\Sudoku\bin\x86\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\novoz\git-repos\Sudoku\Sudoku\Sudoku\bin\x86\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
-      <Modified>2022-12-22T12:45:12.292</Modified>
+      <Modified>2022-12-25T09:55:19.776</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\novoz\source\repos\Sudoku\Sudoku\bin\x86\Debug\Cell.xbf">
-      <PackagePath>Cell.xbf</PackagePath>
-      <Modified>2022-12-22T12:45:12.292</Modified>
+    <AppxPackagedFile Include="C:\Users\novoz\git-repos\Sudoku\Sudoku\Sudoku\bin\x86\Debug\View\Cell.xbf">
+      <PackagePath>View\Cell.xbf</PackagePath>
+      <Modified>2022-12-25T09:55:19.776</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\novoz\source\repos\Sudoku\Sudoku\bin\x86\Debug\GameBoard.xbf">
-      <PackagePath>GameBoard.xbf</PackagePath>
-      <Modified>2022-12-22T12:45:12.292</Modified>
+    <AppxPackagedFile Include="C:\Users\novoz\git-repos\Sudoku\Sudoku\Sudoku\bin\x86\Debug\View\ControlPanel.xbf">
+      <PackagePath>View\ControlPanel.xbf</PackagePath>
+      <Modified>2022-12-25T09:55:19.776</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\novoz\source\repos\Sudoku\Sudoku\bin\x86\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="C:\Users\novoz\git-repos\Sudoku\Sudoku\Sudoku\bin\x86\Debug\View\GameBoard.xbf">
+      <PackagePath>View\GameBoard.xbf</PackagePath>
+      <Modified>2022-12-25T09:55:19.776</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\novoz\git-repos\Sudoku\Sudoku\Sudoku\bin\x86\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
-      <Modified>2022-12-22T12:45:12.292</Modified>
+      <Modified>2022-12-25T09:55:19.777</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\10.0.22000.0\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
       <Modified>2022-07-15T20:53:28.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\novoz\source\repos\Sudoku\Sudoku\bin\x86\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\novoz\git-repos\Sudoku\Sudoku\Sudoku\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2022-12-22T08:35:41.311</Modified>
+      <Modified>2022-12-24T19:38:02.166</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\novoz\source\repos\Sudoku\Sudoku\bin\x86\Debug\Core\Sudoku.exe">
+    <AppxPackagedFile Include="C:\Users\novoz\git-repos\Sudoku\Sudoku\Sudoku\bin\x86\Debug\Core\Sudoku.exe">
       <PackagePath>Sudoku.exe</PackagePath>
-      <Modified>2022-12-22T12:45:13.279</Modified>
+      <Modified>2022-12-25T09:55:20.803</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

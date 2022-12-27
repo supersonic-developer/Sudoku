@@ -1,0 +1,39 @@
+﻿<Page x:ConnectionId='1'
+    x:Class="Sudoku.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Sudoku"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    xmlns:view="using:Sudoku"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="650" Width="1000">
+
+    <Page.TopAppBar>
+        <AppBar Height="50" Width="1000" Background="White" Foreground="Black" IsOpen="True" IsSticky="True">
+            <StackPanel Orientation="Horizontal">
+                <AppBarButton x:ConnectionId='2' x:Name="appbtnUndo" Icon="Undo" Label="Undo step"                            Foreground="Black"/>
+                <AppBarButton x:ConnectionId='3' x:Name="appbtnRedo" Icon="Redo" Label="Redo step"                            Foreground="Black"/>
+                <AppBarButton x:ConnectionId='4' x:Name="appbtnRemove" Icon="Remove"  Label="Remove content"                            Foreground="Black"/>
+                <AppBarButton x:ConnectionId='5' x:Name="appbtnRestart" Icon="Refresh"  Label="Restart"                            Foreground="Black"/>
+                <AppBarButton x:ConnectionId='6' x:Name="appbtnSettings" Icon="Setting" Label="Settings"                            Foreground="Black"/>
+                <ToggleSwitch x:ConnectionId='7' x:Name="viewMode" OnContent="Dark mode" OffContent="Bright mode"                            Foreground="Black"/>
+                <ToggleSwitch x:ConnectionId='8' x:Name="supervisorMode" OnContent="Supervisor mode on" OffContent="Supervisor mode off" 
+                                                               Foreground="Black"/>
+            </StackPanel>
+        </AppBar>
+    </Page.TopAppBar>
+    <Grid Background="White" Height="650">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <view:GameBoard x:ConnectionId='9' x:Name="gameBoard" Grid.Column="0" VerticalAlignment="Top" Margin="0,50"/>
+        <view:ControlPanel Grid.Column="1" VerticalAlignment="Top" Margin="0,50"/>
+        <ProgressBar x:ConnectionId='10' Grid.Column="0" IsIndeterminate="False"  Minimum="0" Maximum="80" Margin="27,577,27,0" VerticalAlignment="Top" Height="17"
+                     Background="LightGray" Foreground="Green" BorderBrush="Black" BorderThickness="1"
+                                                                    />
+    </Grid>
+</Page>
+
