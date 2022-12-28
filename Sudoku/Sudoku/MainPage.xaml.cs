@@ -61,7 +61,7 @@ namespace Sudoku
                     if (strnum.Number > 0)
                         strnum.Cell.Tb.Text = strnum.Number.ToString();
                     else
-                        strnum.Cell.Tb.Text = "";
+                        strnum.Cell.Tb.Text = " ";
                 }
                 sudoku.DisplayedSudoku.Game.CollectionChanged -= Game_CollectionChanged;
                 gameBoard.Cells.CollectionChanged += Cells_CollectionChanged;

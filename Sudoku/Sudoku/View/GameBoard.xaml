@@ -36,11 +36,5 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <Border Grid.ColumnSpan="9" Grid.RowSpan="3" BorderBrush="Black" BorderThickness="3"/>
-        <Border Grid.Row="3" Grid.ColumnSpan="9" Grid.RowSpan="3" BorderBrush="Black" BorderThickness="3"/>
-        <Border Grid.Row="6" Grid.ColumnSpan="9" Grid.RowSpan="3" BorderBrush="Black" BorderThickness="3"/>
-        <Border Grid.ColumnSpan="3" Grid.RowSpan="9" BorderBrush="Black" BorderThickness="3"/>
-        <Border Grid.Column="3" Grid.ColumnSpan="3" Grid.RowSpan="9" BorderBrush="Black" BorderThickness="3"/>
-        <Border Grid.Column="6" Grid.ColumnSpan="3" Grid.RowSpan="9" BorderBrush="Black" BorderThickness="3"/>
     </Grid>
 </UserControl>

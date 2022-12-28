@@ -1,4 +1,4 @@
-﻿<UserControl
+﻿<UserControl x:ConnectionId='1'
     x:Class="Sudoku.Cell"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -9,10 +9,14 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <Grid Width="50" Height="50">
-        <Border BorderBrush="Black" BorderThickness="1">
-            <TextBlock x:ConnectionId='2' x:Name="tb" TextAlignment="Center" FontSize="25" FontFamily="Gill Sans MT" VerticalAlignment="Center" Foreground="Black"/>
-        </Border>
+    <UserControl.Resources>
+        <local:SelectedCellConverter x:Key="SelectedCellConverter"/>
+    </UserControl.Resources>
+
+    <Grid Width="50" Height="50" >
+        <Button x:ConnectionId='2' x:Name="btn" BorderBrush="Black" Width="50" Height="50"                                                                                                BorderThickness="1"                     >
+            <TextBlock x:ConnectionId='3' x:Name="tb" TextAlignment="Center" FontSize="25" FontFamily="Gill Sans MT" VerticalAlignment="Center" Foreground="Black"/>
+        </Button>
     </Grid>
 </UserControl>
 

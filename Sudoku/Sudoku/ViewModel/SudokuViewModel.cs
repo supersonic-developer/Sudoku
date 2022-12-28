@@ -38,7 +38,7 @@ namespace Sudoku
             SudokuSize = solution.Game.Count;
             if (solution.Game.Count == 81)
             {
-                Task.Run(() => DisplayedSudoku.RandomlyDeleteCells(60, solution.Game, ref displayEnabled)); 
+                Task.Run(() => DisplayedSudoku.RandomlyDeleteCells(40, solution.Game, ref displayEnabled)); 
             }   
         }
 
