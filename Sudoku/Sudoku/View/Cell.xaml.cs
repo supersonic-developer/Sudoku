@@ -20,34 +20,27 @@ using Windows.UI.Xaml.Navigation;
 
 namespace Sudoku
 {
-    public sealed partial class Cell : UserControl, INotifyPropertyChanged
+    public sealed partial class Cell : UserControl
     {
-        public bool isSelected = false;
-        public event PropertyChangedEventHandler PropertyChanged;
+        public CellViewModel CellViewModel=new CellViewModel();
 
         public Cell()
         {
             this.InitializeComponent();
         }
 
-        public TextBlock Tb 
-        {
-            get { return tb; }
-        }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            isSelected = !isSelected;
-            Notify();
+            CellViewModel.IsSelected = !CellViewModel.IsSelected;
+            if(MainPage.isDarkMode)
+                btn.Resources["ButtonBackgroundPointerOver"] = new SolidColorBrush(Colors.Black);
+            else
+                btn.Resources["ButtonBackgroundPointerOver"] = new SolidColorBrush(Colors.White);
         }
 
-        protected async void Notify([CallerMemberName] string propertyName = "")
+        public Button Btn
         {
-            await Windows.ApplicationModel.Core.CoreApplication.MainView.CoreWindow.Dispatcher.RunAsync
-                (Windows.UI.Core.CoreDispatcherPriority.Normal,
-                // EVIP: ?. for invoking event. Event is null if there are not subscribers.
-                () => { PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName)); }
-                );
+            get { return btn; }
         }
     }
 }

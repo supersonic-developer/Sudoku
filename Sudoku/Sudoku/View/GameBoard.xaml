@@ -8,10 +8,6 @@
     mc:Ignorable="d"
     d:DesignHeight="450"
     d:DesignWidth="450">
-    
-    <UserControl.Resources>
-        <SolidColorBrush x:Key="TextBoxBorderThemeBrush" Color="Red"/>
-    </UserControl.Resources>
 
     <Grid x:Name="board" Height="450" Width="450" Background="White">
         <Grid.RowDefinitions>

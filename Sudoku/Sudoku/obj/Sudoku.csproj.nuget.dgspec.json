@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\novoz\\Git_repos\\Sudoku\\Sudoku\\Sudoku\\Sudoku.csproj": {}
+    "C:\\Users\\novoz\\git-repos\\Sudoku\\Sudoku\\Sudoku\\Sudoku.csproj": {}
   },
   "projects": {
-    "C:\\Users\\novoz\\Git_repos\\Sudoku\\Sudoku\\Sudoku\\Sudoku.csproj": {
+    "C:\\Users\\novoz\\git-repos\\Sudoku\\Sudoku\\Sudoku\\Sudoku.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\novoz\\Git_repos\\Sudoku\\Sudoku\\Sudoku\\Sudoku.csproj",
+        "projectUniqueName": "C:\\Users\\novoz\\git-repos\\Sudoku\\Sudoku\\Sudoku\\Sudoku.csproj",
         "projectName": "Sudoku",
-        "projectPath": "C:\\Users\\novoz\\Git_repos\\Sudoku\\Sudoku\\Sudoku\\Sudoku.csproj",
+        "projectPath": "C:\\Users\\novoz\\git-repos\\Sudoku\\Sudoku\\Sudoku\\Sudoku.csproj",
         "packagesPath": "C:\\Users\\novoz\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\novoz\\Git_repos\\Sudoku\\Sudoku\\Sudoku\\obj\\",
+        "outputPath": "C:\\Users\\novoz\\git-repos\\Sudoku\\Sudoku\\Sudoku\\obj\\",
         "projectStyle": "PackageReference",
         "skipContentFileWrite": true,
         "fallbackFolders": [

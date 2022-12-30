@@ -12,20 +12,23 @@ namespace Sudoku
 {
     public class SelectedCellConverter : IValueConverter
     {
-        readonly private static SolidColorBrush lightGray = new SolidColorBrush(Colors.Gray);
+        readonly private static SolidColorBrush lightGray = new SolidColorBrush(Colors.LightGray);
         readonly private static SolidColorBrush white = new SolidColorBrush(Colors.White);
+        readonly private static SolidColorBrush lightGreen = new SolidColorBrush(Colors.LightGreen);
+        readonly private static SolidColorBrush black = new SolidColorBrush(Colors.Black);
 
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            if ((bool)value)
-            {
+            if ((bool)value && !MainPage.isDarkMode)
                 return lightGray;
-            }
-            else
-            {
+            else if (!(bool)value && !MainPage.isDarkMode)
                 return white;
-            }
+            else if ((bool)value && MainPage.isDarkMode)
+                return lightGreen;
+            else
+                return black;
         }
+
         public object ConvertBack(object value, Type targetType, object parameter, string language)
         {
             throw new NotImplementedException();

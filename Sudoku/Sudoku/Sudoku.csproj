@@ -119,6 +119,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\BorderConvert.cs" />
+    <Compile Include="ViewModel\CellViewModel.cs" />
     <Compile Include="View\Cell.xaml.cs">
       <DependentUpon>Cell.xaml</DependentUpon>
     </Compile>
@@ -134,7 +136,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Model\Sudoku.cs" />
     <Compile Include="ViewModel\SudokuViewModel.cs" />
-    <Compile Include="View\SelectedCellConverter.cs" />
+    <Compile Include="Converters\SelectedCellConverter.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">

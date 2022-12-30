@@ -10,12 +10,20 @@
     d:DesignWidth="400">
 
     <UserControl.Resources>
-        <local:SelectedCellConverter x:Key="SelectedCellConverter"/>
+        <local:SelectedCellConverter x:Key="themeConverter"/>
+        <local:BorderConvert x:Key="borderConverter"/>
     </UserControl.Resources>
 
+
     <Grid Width="50" Height="50" >
-        <Button x:ConnectionId='2' x:Name="btn" BorderBrush="Black" Width="50" Height="50"                                                                                                BorderThickness="1"                     >
-            <TextBlock x:ConnectionId='3' x:Name="tb" TextAlignment="Center" FontSize="25" FontFamily="Gill Sans MT" VerticalAlignment="Center" Foreground="Black"/>
+        <Button x:ConnectionId='2' x:Name="btn"                                                                                                        
+                                                                                                                                
+                Width="50" Height="50" BorderThickness="1"                     >
+            <Button.Resources>
+                <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="LightGray"/>
+            </Button.Resources>
+            <TextBlock x:ConnectionId='3' x:Name="tb"                                                    TextAlignment="Center" FontSize="25" FontFamily="Gill Sans MT" VerticalAlignment="Center" 
+                                                                                                                                      />
         </Button>
     </Grid>
 </UserControl>

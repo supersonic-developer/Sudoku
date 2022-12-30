@@ -14,6 +14,7 @@ namespace Sudoku
     public class Sudoku : INotifyCollectionChanged
     {
         ObservableCollection<int> game = new ObservableCollection<int>();
+        List<int> deletedIndeces = new List<int>();
         Random rand = new Random();
         List<int> sols = new List<int>();
         List<List<int>> solsLists = new List<List<int>>();
@@ -25,10 +26,9 @@ namespace Sudoku
             set {   game= value;    }
         }
 
-        public List<List<int>> SolsLists
+        public List<int> DeletedIndeces
         {
-            get { return solsLists; }
-            set { solsLists = value; }
+            get { return deletedIndeces; }
         }
 
         protected async void OnCollectionChanged(NotifyCollectionChangedEventArgs e)
@@ -55,31 +55,28 @@ namespace Sudoku
                     sols = solsLists[solsLists.Count - 1];
                     game.RemoveAt(game.Count - 1);
                 }
-
                 game.Add(GenerateOKNumber());
             }
         }
 
-        public void RandomlyDeleteCells(int numOfDeletingCells, ObservableCollection<int> solution, ref bool displayEnabled)
+        public void RandomlyDeleteCells(int numOfDeletingCells)
         {       
-            List<int> deletedIndeces = new List<int>();
             List<int> indeces = new List<int>();
             for (int idx = 0; idx < 81; idx++)
             { indeces.Add(idx);    }
-            foreach (int num in solution)
-                game.Add(num);
+            ObservableCollection<int> cpGame = new ObservableCollection<int>(game);
 
             while (deletedIndeces.Count < numOfDeletingCells)
             {
                 solsLists.Clear();
                 deletedIndeces.Add(indeces[rand.Next(indeces.Count)]);
                 indeces.RemoveAt(indeces.FindIndex(num => num == deletedIndeces[deletedIndeces.Count - 1]));
-                foreach(int num in deletedIndeces)
+                foreach(int num in deletedIndeces.ToList())
                     game[num] = 0;
 
                 if (!isUnique(new List<int>(deletedIndeces)))
                 {
-                    game[deletedIndeces[deletedIndeces.Count - 1]] = solution[deletedIndeces[deletedIndeces.Count - 1]];
+                    game[deletedIndeces[deletedIndeces.Count - 1]] = cpGame[deletedIndeces[deletedIndeces.Count - 1]];
                     deletedIndeces.RemoveAt(deletedIndeces.Count - 1);
                     if (deletedIndeces.Count + indeces.Count < numOfDeletingCells)
                     {
@@ -91,7 +88,7 @@ namespace Sudoku
                         for (int cnt = 0; cnt < removedCellsCount / 2; cnt++)
                         {
                             rndIdx = rand.Next(deletedIndeces.Count);
-                            game[deletedIndeces[rndIdx]] = solution[deletedIndeces[rndIdx]];
+                            game[deletedIndeces[rndIdx]] = cpGame[deletedIndeces[rndIdx]];
                             deletedIndeces.RemoveAt(rndIdx);  
                         }
                         foreach (int idx in deletedIndeces)
@@ -99,45 +96,9 @@ namespace Sudoku
                     }
                 }
             }
-            displayEnabled = true;
+            game = cpGame;
             OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
         }
-
-        /*
-        private int RandomlyGeneratedSymmetryIdx(int idx, List<int> indeces)
-        {
-            List<int> codes = new List<int>();
-            for(int code=0;code<3;code++)
-                codes.Add(code);
-            int symmetryIdx=-1;
-            
-            while (!indeces.Contains(symmetryIdx) && codes.Count>0)
-            {
-                int symmetryCode = codes[rand.Next(codes.Count)];
-                codes.RemoveAt(codes.FindIndex(num => num == symmetryCode));
-                if (idx % 9 == 4 || idx / 9 == 4)
-                    symmetryCode = 2;
-                switch (symmetryCode)
-                {
-                    case 0: // Vertical symmetry
-                        symmetryIdx = (8 - idx % 9) + 9 * idx / 9;
-                        break;
-                    case 1: // Horizontal symmetry
-                        symmetryIdx = (8 - idx / 9) * 9 + idx % 9;
-                        break;
-                    case 2: // Rotational symmetry
-                        // 1: Symmetry vertically
-                        symmetryIdx = (8 - idx % 9) + 9 * idx / 9;
-                        // 1: Symmetry horizontally
-                        symmetryIdx = (8 - symmetryIdx / 9) * 9 + symmetryIdx % 9;
-                        break;
-                    default:
-                        break;
-                }
-            }
-            return symmetryIdx;
-        }
-        */
 
         private bool isUnique(List<int> emptyCells)
         {
@@ -228,6 +189,7 @@ namespace Sudoku
             }
             return lPossibleSolutions;
         }
+
         private void CalculateGoodNums(int id)
         {
             for (int num = 1; num < 10; num++)

@@ -12,11 +12,20 @@ namespace Sudoku
 
     public class SudokuViewModel : INotifyPropertyChanged
     {
-        Sudoku solution = new Sudoku();
-        bool displayEnabled = false;
+        Sudoku sudoku = new Sudoku();
         int sudokuSize = 0;
         public event PropertyChangedEventHandler PropertyChanged;
-        public Sudoku DisplayedSudoku = new Sudoku();
+
+        public SudokuViewModel()
+        {
+            sudoku.Game.CollectionChanged += Game_CollectionChanged;
+            Task.Run(() => sudoku.CreateGame());
+        }
+
+        public Sudoku Sudoku
+        { 
+            get { return sudoku; }
+        }
 
         protected async void Notify([CallerMemberName] string propertyName = "")
         {
@@ -27,34 +36,21 @@ namespace Sudoku
                 );
         }
 
-        public SudokuViewModel() 
+        private void Game_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
-            solution.Game.CollectionChanged += SolutionGame_CollectionChanged; 
-            Task.Run(() => solution.CreateGame());
-        }
-
-        private void SolutionGame_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
-        {
-            SudokuSize = solution.Game.Count;
-            if (solution.Game.Count == 81)
-            {
-                Task.Run(() => DisplayedSudoku.RandomlyDeleteCells(40, solution.Game, ref displayEnabled)); 
-            }   
+            SudokuSize = sudoku.Game.Count;
+            if(e.Action==System.Collections.Specialized.NotifyCollectionChangedAction.Add && sudoku.Game.Count == 81)
+                Task.Run(() => sudoku.RandomlyDeleteCells(50));
         }
 
         public int SudokuSize
         {
             get {   return sudokuSize;  }
             set 
-            {
-                Notify(); 
-                sudokuSize = value; 
+            { 
+                sudokuSize = value;
+                Notify();
             }
-        }
-
-        public bool DisplayEnabled
-        {
-            get { return displayEnabled; }
         }
     }
 }
