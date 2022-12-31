@@ -63,7 +63,9 @@ namespace Sudoku
         {       
             List<int> indeces = new List<int>();
             for (int idx = 0; idx < 81; idx++)
-            { indeces.Add(idx);    }
+            {
+                indeces.Add(idx);
+            }
             ObservableCollection<int> cpGame = new ObservableCollection<int>(game);
 
             while (deletedIndeces.Count < numOfDeletingCells)

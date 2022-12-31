@@ -10,20 +10,19 @@
     d:DesignWidth="400">
 
     <UserControl.Resources>
-        <local:SelectedCellConverter x:Key="themeConverter"/>
-        <local:BorderConvert x:Key="borderConverter"/>
+        <local:Code2ColorConverter x:Key="themeConverter"/>
     </UserControl.Resources>
 
 
     <Grid Width="50" Height="50" >
-        <Button x:Name="btn" Background="{x:Bind CellViewModel.IsSelected, Mode=OneWay, Converter={StaticResource themeConverter}}" 
-                BorderBrush="{x:Bind CellViewModel.IsSelectedNegated, Mode=OneWay, Converter={StaticResource borderConverter}}" 
-                Width="50" Height="50" BorderThickness="1" Click="Button_Click">
+        <Button x:Name="btn"  
+                Width="50" Height="50" BorderThickness="1" Click="Button_Click" Background="{x:Bind ThemeViewModel.Background, Mode=OneWay, Converter={StaticResource themeConverter}}"
+                BorderBrush="{x:Bind ThemeViewModel.BorderBrush,Mode=OneWay, Converter={StaticResource themeConverter}}">
             <Button.Resources>
                 <SolidColorBrush x:Key="ButtonBackgroundPointerOver" Color="LightGray"/>
             </Button.Resources>
             <TextBlock x:Name="tb" Text="{x:Bind CellViewModel.Content, Mode=TwoWay}" TextAlignment="Center" FontSize="25" FontFamily="Gill Sans MT" VerticalAlignment="Center" 
-                       Foreground="{x:Bind CellViewModel.IsSelectedNegated, Mode=OneWay, Converter={StaticResource borderConverter}}" />
+                       Foreground="{x:Bind ThemeViewModel.Foreground, Mode=OneWay, Converter={StaticResource themeConverter}}" />
         </Button>
     </Grid>
 </UserControl>

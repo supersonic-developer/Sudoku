@@ -9,8 +9,7 @@
       <RootProperty Name="Resources" />
       <RootProperty Name="Content" />
     </RootType>
-    <RootType FullName="Sudoku.SelectedCellConverter" />
-    <RootType FullName="Sudoku.BorderConvert" />
+    <RootType FullName="Sudoku.Code2ColorConverter" />
     <RootType FullName="Windows.UI.Xaml.Controls.Grid">
       <RootProperty Name="Width" />
       <RootProperty Name="Height" />
@@ -28,13 +27,14 @@
       <RootMethod Name="SetRow" />
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.Button">
-      <RootProperty Name="Background" />
-      <RootProperty Name="BorderBrush" />
       <RootProperty Name="Width" />
       <RootProperty Name="Height" />
       <RootProperty Name="BorderThickness" />
+      <RootProperty Name="Background" />
+      <RootProperty Name="BorderBrush" />
       <RootProperty Name="Resources" />
       <RootProperty Name="Content" />
+      <RootProperty Name="Foreground" />
       <RootProperty Name="HorizontalAlignment" />
       <RootProperty Name="VerticalAlignment" />
       <RootProperty Name="FontSize" />
@@ -101,6 +101,7 @@
       <RootProperty Name="Height" />
       <RootProperty Name="Width" />
       <RootProperty Name="Background" />
+      <RootProperty Name="BorderBrush" />
       <RootProperty Name="IsOpen" />
       <RootProperty Name="IsSticky" />
       <RootProperty Name="Content" />

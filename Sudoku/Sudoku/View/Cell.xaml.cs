@@ -23,6 +23,7 @@ namespace Sudoku
     public sealed partial class Cell : UserControl
     {
         public CellViewModel CellViewModel=new CellViewModel();
+        public ThemeViewModel ThemeViewModel=new ThemeViewModel(1,0,1);
 
         public Cell()
         {
@@ -32,10 +33,14 @@ namespace Sudoku
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             CellViewModel.IsSelected = !CellViewModel.IsSelected;
-            if(MainPage.isDarkMode)
-                btn.Resources["ButtonBackgroundPointerOver"] = new SolidColorBrush(Colors.Black);
-            else
+            if (ThemeViewModel.Background < 2)
+                ThemeViewModel.Background += 2;
+            else if (ThemeViewModel.Background > 1)
+                ThemeViewModel.Background -= 2;
+            if (ThemeViewModel.Background == 2)
                 btn.Resources["ButtonBackgroundPointerOver"] = new SolidColorBrush(Colors.White);
+            else if (ThemeViewModel.Background == 3)
+                btn.Resources["ButtonBackgroundPointerOver"] = new SolidColorBrush(Colors.Black);
         }
 
         public Button Btn

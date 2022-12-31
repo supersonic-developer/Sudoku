@@ -10,25 +10,26 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="650" Width="1000">
 
     <Page.Resources>
-        <local:BorderConvert x:Key="borderConverter"/>
+        <local:Code2ColorConverter x:Key="themeConverter"/>
     </Page.Resources>
-    
+
     <Page.TopAppBar>
-        <AppBar Height="50" Width="1000" Background="{x:Bind gameBoard.Cells[0].CellViewModel.IsDarkModeNegated,Mode=OneWay, Converter={StaticResource borderConverter}}" IsOpen="True" IsSticky="True">
-            <StackPanel Orientation="Horizontal">
-                <AppBarButton x:Name="appbtnUndo" Icon="Undo" Label="Undo step" Click="AppBarButton_Click" Foreground="Black"/>
-                <AppBarButton x:Name="appbtnRedo" Icon="Redo" Label="Redo step" Click="AppBarButton_Click" Foreground="Black"/>
-                <AppBarButton x:Name="appbtnRemove" Icon="Remove"  Label="Remove content" Click="AppBarButton_Click" Foreground="Black"/>
-                <AppBarSeparator Foreground="Black"/>
-                <AppBarButton x:Name="appbtnRestart" Icon="Refresh"  Label="Restart" Click="AppBarButton_Click" Foreground="Black"/>
-                <AppBarButton x:Name="appbtnSettings" Icon="Setting" Label="Settings" Click="AppBarButton_Click" Foreground="Black"/>
-                <ToggleSwitch x:Name="theme" OnContent="Dark mode" OffContent="Bright mode" Toggled="Theme_Toggled" Foreground="Black"/>
-                <ToggleSwitch x:Name="supervisorMode" OnContent="Supervisor mode on" OffContent="Supervisor mode off" 
-                              Toggled="supervisorMode_Toggled" Foreground="Black"/>
-            </StackPanel>
-        </AppBar>
+        <AppBar Height="50" Width="1000" Background="{x:Bind ThemeViewModel.Background ,Mode=OneWay, Converter={StaticResource themeConverter}}" 
+            BorderBrush="{x:Bind ThemeViewModel.BorderBrush ,Mode=OneWay, Converter={StaticResource themeConverter}}" IsOpen="True" IsSticky="True">
+                <StackPanel Orientation="Horizontal">
+                    <AppBarButton x:Name="appbtnUndo" Icon="Undo" Label="Undo step" Click="AppBarButton_Click" Foreground="{x:Bind ThemeViewModel.Foreground, Mode=OneWay, Converter={StaticResource themeConverter}}"/>
+                    <AppBarButton x:Name="appbtnRedo" Icon="Redo" Label="Redo step" Click="AppBarButton_Click" Foreground="{x:Bind ThemeViewModel.Foreground, Mode=OneWay, Converter={StaticResource themeConverter}}"/>
+                    <AppBarButton x:Name="appbtnRemove" Icon="Remove"  Label="Remove content" Click="AppBarButton_Click" Foreground="{x:Bind ThemeViewModel.Foreground, Mode=OneWay, Converter={StaticResource themeConverter}}"/>
+                    <AppBarSeparator Foreground="{x:Bind ThemeViewModel.Foreground, Mode=OneWay, Converter={StaticResource themeConverter}}"/>
+                    <AppBarButton x:Name="appbtnRestart" Icon="Refresh"  Label="Restart" Click="AppBarButton_Click" Foreground="{x:Bind ThemeViewModel.Foreground, Mode=OneWay, Converter={StaticResource themeConverter}}"/>
+                    <AppBarButton x:Name="appbtnSettings" Icon="Setting" Label="Settings" Click="AppBarButton_Click" Foreground="{x:Bind ThemeViewModel.Foreground, Mode=OneWay, Converter={StaticResource themeConverter}}"/>
+                    <ToggleSwitch x:Name="theme" OnContent="Dark mode" OffContent="Bright mode" Toggled="Theme_Toggled" Foreground="{x:Bind ThemeViewModel.Foreground, Mode=OneWay, Converter={StaticResource themeConverter}}"/>
+                    <ToggleSwitch x:Name="supervisorMode" OnContent="Supervisor mode on" OffContent="Supervisor mode off" 
+                              Toggled="supervisorMode_Toggled" Foreground="{x:Bind ThemeViewModel.Foreground, Mode=OneWay, Converter={StaticResource themeConverter}}"/>
+                </StackPanel>
+            </AppBar>
     </Page.TopAppBar>
-    <Grid Background="{x:Bind gameBoard.Cells[0].CellViewModel.IsDarkModeNegated,Mode=OneWay, Converter={StaticResource borderConverter}}" Height="650">
+    <Grid Background="{x:Bind ThemeViewModel.Background, Mode=OneWay, Converter={StaticResource themeConverter}}" Height="650">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />

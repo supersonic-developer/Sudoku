@@ -49,7 +49,10 @@ namespace Sudoku
                 for (int row = 0; row < 9; row += 3)
                 {
                     bigCells.Add(new Border());
-                    bigCells[bigCells.Count - 1].BorderBrush = borderColor;
+                    Binding binding = new Binding();
+                    binding.Source = cells[0].ThemeViewModel.BorderBrush;
+                    binding.Converter = new Code2ColorConverter();
+                    bigCells[bigCells.Count - 1].SetBinding(Border.BorderBrushProperty, binding);
                     bigCells[bigCells.Count - 1].BorderThickness = new Thickness(3);
                     Grid.SetColumn(bigCells[bigCells.Count - 1], col);
                     Grid.SetRow(bigCells[bigCells.Count - 1], row);
@@ -60,7 +63,10 @@ namespace Sudoku
             }
             sudokuVM.Sudoku.CollectionChanged += Game_CollectionChanged;
             foreach (Cell cell in cells)
-            { cell.CellViewModel.PropertyChanged += Cell_PropertyChanged; }
+            { 
+                cell.CellViewModel.PropertyChanged += Cell_PropertyChanged;
+                cell.ThemeViewModel.PropertyChanged += Theme_PropertyChanged;
+            }
         }
 
         public SudokuViewModel SudokuVM
@@ -93,32 +99,26 @@ namespace Sudoku
             }
             else if (e.PropertyName == "IsSelected")
             {
-                if (cellVM.IsSelected)
+                foreach (Cell cell in cells)
                 {
-                    foreach (Cell cell in cells)
+                    if (cell.CellViewModel != cellVM)
                     {
-                        if (cell.CellViewModel != cellVM)
-                        {
-                            cell.CellViewModel.IsSelected = false;
-                            if(MainPage.isDarkMode)
-                                cell.Btn.Resources["ButtonBackgroundPointerOver"] = new SolidColorBrush(Colors.LightGreen);
-                            else
-                                cell.Btn.Resources["ButtonBackgroundPointerOver"] = new SolidColorBrush(Colors.LightGray);
-                        }
+                        if (cell.ThemeViewModel.Background == 0)
+                            cell.Btn.Resources["ButtonBackgroundPointerOver"] = new SolidColorBrush(Colors.LightGray);
+                        else if (cell.ThemeViewModel.Background == 1)
+                            cell.Btn.Resources["ButtonBackgroundPointerOver"] = new SolidColorBrush(Colors.LightGreen);
+                    }
+                    else 
+                    {
+
                     }
                 }
             }
-            else if (e.PropertyName == "IsDarkMode")
-            {
-                cellVM.IsSelected = cellVM.IsSelected;
-                SolidColorBrush color;
-                if (MainPage.isDarkMode)
-                    color = new SolidColorBrush(Colors.White);
-                else
-                    color = new SolidColorBrush(Colors.Black);
-                foreach (Border border in bigCells) 
-                    border.BorderBrush = color;
-            }
+        }
+
+        private void Theme_PropertyChanged(object sender, PropertyChangedEventArgs e)
+        {
+            
         }
     }
 }

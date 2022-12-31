@@ -29,26 +29,12 @@ namespace Sudoku
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        public static bool isDarkMode = false;
+        ThemeViewModel ThemeViewModel = new ThemeViewModel(1,0,1);
         public MainPage()
         {
             this.InitializeComponent();
             ApplicationView.PreferredLaunchViewSize = new Size(1000, 650);
             ApplicationView.PreferredLaunchWindowingMode = ApplicationViewWindowingMode.PreferredLaunchViewSize;
-            Application.Current.Resources["ToggleSwitchFillOff"] = new SolidColorBrush(Colors.White);
-            Application.Current.Resources["ToggleSwitchFillOn"] = new SolidColorBrush(Colors.Black);
-            Application.Current.Resources["ToggleSwitchFillOnPointerOver"] = new SolidColorBrush(Colors.White);
-            Application.Current.Resources["ToggleSwitchFillOffPointerOver"] = new SolidColorBrush(Colors.Black);
-
-            Application.Current.Resources["ToggleSwitchStrokeOff"] = new SolidColorBrush(Colors.Black);
-            Application.Current.Resources["ToggleSwitchStrokeOn"] = new SolidColorBrush(Colors.White);
-            Application.Current.Resources["ToggleSwitchStrokeOnPointerOver"] = new SolidColorBrush(Colors.Black);
-            Application.Current.Resources["ToggleSwitchStrokeOffPointerOver"] = new SolidColorBrush(Colors.White);
-
-            Application.Current.Resources["ToggleSwitchKnobFillOff"] = new SolidColorBrush(Colors.Black);
-            Application.Current.Resources["ToggleSwitchKnobFillOn"] = new SolidColorBrush(Colors.LightGreen);
-            Application.Current.Resources["ToggleSwitchKnobFillOffPointerOver"] = new SolidColorBrush(Colors.LightGreen);
-            Application.Current.Resources["ToggleSwitchKnobFillOnPointerOver"] = new SolidColorBrush(Colors.Black); 
         }
 
         private void AppBarButton_Click(object sender, RoutedEventArgs e)
@@ -58,11 +44,7 @@ namespace Sudoku
 
         private void Theme_Toggled(object sender, RoutedEventArgs e)
         {
-            isDarkMode = !isDarkMode;
-            foreach (Cell cell in gameBoard.Cells)
-            {
-                cell.CellViewModel.IsDarkMode = isDarkMode;
-            }
+           
         }
 
         private void supervisorMode_Toggled(object sender, RoutedEventArgs e)

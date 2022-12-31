@@ -10,7 +10,7 @@ using Windows.UI.Xaml.Media;
 
 namespace Sudoku
 {
-    public class SelectedCellConverter : IValueConverter
+    public class Code2ColorConverter : IValueConverter
     {
         readonly private static SolidColorBrush lightGray = new SolidColorBrush(Colors.LightGray);
         readonly private static SolidColorBrush white = new SolidColorBrush(Colors.White);
@@ -19,14 +19,19 @@ namespace Sudoku
 
         public object Convert(object value, Type targetType, object parameter, string language)
         {
-            if ((bool)value && !MainPage.isDarkMode)
-                return lightGray;
-            else if (!(bool)value && !MainPage.isDarkMode)
-                return white;
-            else if ((bool)value && MainPage.isDarkMode)
-                return lightGreen;
-            else
-                return black;
+            int code = (int)value;
+            switch (code)
+            {
+                case 0:
+                    return white;
+                case 1:
+                    return black;
+                case 2:
+                    return lightGray;
+                case 3:
+                    return lightGreen;
+                default: return null;
+            }
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, string language)

@@ -5,11 +5,16 @@
     xmlns:local="using:Sudoku"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:view="using:Sudoku"
     mc:Ignorable="d"
     d:DesignHeight="450"
     d:DesignWidth="450">
 
-    <Grid x:ConnectionId='2' x:Name="board" Height="450" Width="450" Background="White">
+    <UserControl.Resources>
+        <local:Code2ColorConverter x:Key="themeConverter"/>
+    </UserControl.Resources>
+    
+    <Grid x:ConnectionId='2' x:Name="board" Height="450" Width="450">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />

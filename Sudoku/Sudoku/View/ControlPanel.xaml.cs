@@ -19,6 +19,7 @@ namespace Sudoku
 {
     public sealed partial class ControlPanel : UserControl
     {
+        ThemeViewModel themeViewModel = new ThemeViewModel(1,0,1);
         public ControlPanel()
         {
             this.InitializeComponent();

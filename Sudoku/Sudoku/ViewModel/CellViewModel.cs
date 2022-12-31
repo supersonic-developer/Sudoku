@@ -11,9 +11,6 @@ namespace Sudoku
     public class CellViewModel : INotifyPropertyChanged
     {
         bool isSelected = false;
-        bool isSelectedNegated = true;
-        bool isDarkMode= false;
-        bool isDarkModeNegated = true;
         string content;
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -45,38 +42,6 @@ namespace Sudoku
             set 
             {
                 isSelected = value;
-                IsSelectedNegated = !isSelected;
-                Notify();
-            }
-        }
-
-        public bool IsDarkMode
-        {
-            get { return isDarkMode; }
-            set 
-            {
-                isDarkMode = value;
-                IsDarkModeNegated= !isDarkMode;
-                Notify();
-            }
-        }
-
-        public bool IsDarkModeNegated
-        {
-            get { return isDarkModeNegated; }
-            set
-            {
-                isDarkModeNegated = value;
-                Notify();
-            }
-        }
-
-        public bool IsSelectedNegated
-        {
-            get { return isSelectedNegated; }
-            set 
-            {
-                isSelectedNegated = value;
                 Notify();
             }
         }

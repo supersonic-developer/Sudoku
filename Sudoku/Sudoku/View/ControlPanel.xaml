@@ -9,7 +9,11 @@
     d:DesignHeight="480"
     d:DesignWidth="360">
 
-    <Grid Background="White" Width="360" Height="450" BorderBrush="Black" BorderThickness="3">
+    <UserControl.Resources>
+        <local:Code2ColorConverter x:Key="themeConverter"/>
+    </UserControl.Resources>
+    
+    <Grid Background="{x:Bind themeViewModel.Background, Mode=OneWay, Converter={StaticResource themeConverter}}" Width="360" Height="450" BorderBrush="Black" BorderThickness="3">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
@@ -33,31 +37,58 @@
                 </Image>
             </Button>
         </StackPanel>
-        <Button x:Name="btn1" Grid.Column="0" Grid.Row="1" Height="100" Width="100" Background="Gray"
+        <Button x:Name="btn1" Grid.Column="0" Grid.Row="1" Height="100" Width="100" 
+                Background="{x:Bind themeViewModel.Background, Mode=OneWay, Converter={StaticResource themeConverter}}" 
+                Foreground="{x:Bind themeViewModel.Foreground, Mode=OneWay, Converter={StaticResource themeConverter}}" 
+                BorderBrush="{x:Bind themeViewModel.BorderBrush, Mode=OneWay, Converter={StaticResource themeConverter}}"
                 HorizontalAlignment="Center" VerticalAlignment="Center" 
                 Click="Button_Click" Content="1" FontSize="50"/>
-        <Button x:Name="btn2" Grid.Column="1" Grid.Row="1" Height="100" Width="100" Background="Gray"
+        <Button x:Name="btn2" Grid.Column="1" Grid.Row="1" Height="100" Width="100" 
+                Background="{x:Bind themeViewModel.Background, Mode=OneWay, Converter={StaticResource themeConverter}}" 
+                Foreground="{x:Bind themeViewModel.Foreground, Mode=OneWay, Converter={StaticResource themeConverter}}" 
+                BorderBrush="{x:Bind themeViewModel.BorderBrush, Mode=OneWay, Converter={StaticResource themeConverter}}"
                 HorizontalAlignment="Center" VerticalAlignment="Center" 
                 Click="Button_Click" Content="2" FontSize="50"/>
-        <Button x:Name="btn3" Grid.Column="2" Grid.Row="1" Height="100" Width="100" Background="Gray"
+        <Button x:Name="btn3" Grid.Column="2" Grid.Row="1" Height="100" Width="100" 
+                Background="{x:Bind themeViewModel.Background, Mode=OneWay, Converter={StaticResource themeConverter}}" 
+                Foreground="{x:Bind themeViewModel.Foreground, Mode=OneWay, Converter={StaticResource themeConverter}}" 
+                BorderBrush="{x:Bind themeViewModel.BorderBrush, Mode=OneWay, Converter={StaticResource themeConverter}}"
                 HorizontalAlignment="Center" VerticalAlignment="Center" 
                 Click="Button_Click" Content="3" FontSize="50"/>
-        <Button x:Name="btn4" Grid.Column="0" Grid.Row="2" Height="100" Width="100" Background="Gray"
+        <Button x:Name="btn4" Grid.Column="0" Grid.Row="2" Height="100" Width="100"
+                Background="{x:Bind themeViewModel.Background, Mode=OneWay, Converter={StaticResource themeConverter}}" 
+                Foreground="{x:Bind themeViewModel.Foreground, Mode=OneWay, Converter={StaticResource themeConverter}}" 
+                BorderBrush="{x:Bind themeViewModel.BorderBrush, Mode=OneWay, Converter={StaticResource themeConverter}}"
                 HorizontalAlignment="Center" VerticalAlignment="Center" 
                 Click="Button_Click" Content="4" FontSize="50"/>
-        <Button x:Name="btn5" Grid.Column="1" Grid.Row="2" Height="100" Width="100" Background="Gray"
+        <Button x:Name="btn5" Grid.Column="1" Grid.Row="2" Height="100" Width="100"
+                Background="{x:Bind themeViewModel.Background, Mode=OneWay, Converter={StaticResource themeConverter}}" 
+                Foreground="{x:Bind themeViewModel.Foreground, Mode=OneWay, Converter={StaticResource themeConverter}}" 
+                BorderBrush="{x:Bind themeViewModel.BorderBrush, Mode=OneWay, Converter={StaticResource themeConverter}}"
                 HorizontalAlignment="Center" VerticalAlignment="Center" 
                 Click="Button_Click" Content="5" FontSize="50"/>
-        <Button x:Name="btn6" Grid.Column="2" Grid.Row="2" Height="100" Width="100" Background="Gray"
+        <Button x:Name="btn6" Grid.Column="2" Grid.Row="2" Height="100" Width="100" 
+                Background="{x:Bind themeViewModel.Background, Mode=OneWay, Converter={StaticResource themeConverter}}" 
+                Foreground="{x:Bind themeViewModel.Foreground, Mode=OneWay, Converter={StaticResource themeConverter}}" 
+                BorderBrush="{x:Bind themeViewModel.BorderBrush, Mode=OneWay, Converter={StaticResource themeConverter}}"
                 HorizontalAlignment="Center" VerticalAlignment="Center" 
                 Click="Button_Click" Content="6" FontSize="50"/>
-        <Button x:Name="btn7" Grid.Column="0" Grid.Row="3" Height="100" Width="100" Background="Gray"
+        <Button x:Name="btn7" Grid.Column="0" Grid.Row="3" Height="100" Width="100" 
+                Background="{x:Bind themeViewModel.Background, Mode=OneWay, Converter={StaticResource themeConverter}}" 
+                Foreground="{x:Bind themeViewModel.Foreground, Mode=OneWay, Converter={StaticResource themeConverter}}" 
+                BorderBrush="{x:Bind themeViewModel.BorderBrush, Mode=OneWay, Converter={StaticResource themeConverter}}"
                 HorizontalAlignment="Center" VerticalAlignment="Center"
                 Click="Button_Click" Content="7" FontSize="50"/>
-        <Button x:Name="btn8" Grid.Column="1" Grid.Row="3" Height="100" Width="100" Background="Gray"
+        <Button x:Name="btn8" Grid.Column="1" Grid.Row="3" Height="100" Width="100"
+                Background="{x:Bind themeViewModel.Background, Mode=OneWay, Converter={StaticResource themeConverter}}" 
+                Foreground="{x:Bind themeViewModel.Foreground, Mode=OneWay, Converter={StaticResource themeConverter}}" 
+                BorderBrush="{x:Bind themeViewModel.BorderBrush, Mode=OneWay, Converter={StaticResource themeConverter}}"
                 HorizontalAlignment="Center" VerticalAlignment="Center" 
                 Click="Button_Click" Content="8" FontSize="50"/>
-        <Button x:Name="btn9" Grid.Column="2" Grid.Row="3" Height="100" Width="100" Background="Gray"
+        <Button x:Name="btn9" Grid.Column="2" Grid.Row="3" Height="100" Width="100" 
+                Background="{x:Bind themeViewModel.Background, Mode=OneWay, Converter={StaticResource themeConverter}}" 
+                Foreground="{x:Bind themeViewModel.Foreground, Mode=OneWay, Converter={StaticResource themeConverter}}" 
+                BorderBrush="{x:Bind themeViewModel.BorderBrush, Mode=OneWay, Converter={StaticResource themeConverter}}"
                 HorizontalAlignment="Center" VerticalAlignment="Center" 
                 Click="Button_Click" Content="9" FontSize="50"/>
     </Grid>

@@ -10,33 +10,34 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Height="650" Width="1000">
 
     <Page.Resources>
-        <local:BorderConvert x:Key="borderConverter"/>
+        <local:Code2ColorConverter x:Key="themeConverter"/>
     </Page.Resources>
-    
+
     <Page.TopAppBar>
-        <AppBar x:ConnectionId='2' Height="50" Width="1000"                                                                                                                                  IsOpen="True" IsSticky="True">
-            <StackPanel Orientation="Horizontal">
-                <AppBarButton x:ConnectionId='3' x:Name="appbtnUndo" Icon="Undo" Label="Undo step"                            Foreground="Black"/>
-                <AppBarButton x:ConnectionId='4' x:Name="appbtnRedo" Icon="Redo" Label="Redo step"                            Foreground="Black"/>
-                <AppBarButton x:ConnectionId='5' x:Name="appbtnRemove" Icon="Remove"  Label="Remove content"                            Foreground="Black"/>
-                <AppBarSeparator Foreground="Black"/>
-                <AppBarButton x:ConnectionId='6' x:Name="appbtnRestart" Icon="Refresh"  Label="Restart"                            Foreground="Black"/>
-                <AppBarButton x:ConnectionId='7' x:Name="appbtnSettings" Icon="Setting" Label="Settings"                            Foreground="Black"/>
-                <ToggleSwitch x:ConnectionId='8' x:Name="theme" OnContent="Dark mode" OffContent="Bright mode"                         Foreground="Black"/>
-                <ToggleSwitch x:ConnectionId='9' x:Name="supervisorMode" OnContent="Supervisor mode on" OffContent="Supervisor mode off" 
-                                                               Foreground="Black"/>
-            </StackPanel>
-        </AppBar>
+        <AppBar x:ConnectionId='2' Height="50" Width="1000"                                                                                                         
+                                                                                                                      IsOpen="True" IsSticky="True">
+                <StackPanel Orientation="Horizontal">
+                    <AppBarButton x:ConnectionId='3' x:Name="appbtnUndo" Icon="Undo" Label="Undo step"                                                                                                                                   />
+                    <AppBarButton x:ConnectionId='4' x:Name="appbtnRedo" Icon="Redo" Label="Redo step"                                                                                                                                   />
+                    <AppBarButton x:ConnectionId='5' x:Name="appbtnRemove" Icon="Remove"  Label="Remove content"                                                                                                                                   />
+                    <AppBarSeparator x:ConnectionId='6'                                                                                                        />
+                    <AppBarButton x:ConnectionId='7' x:Name="appbtnRestart" Icon="Refresh"  Label="Restart"                                                                                                                                   />
+                    <AppBarButton x:ConnectionId='8' x:Name="appbtnSettings" Icon="Setting" Label="Settings"                                                                                                                                   />
+                    <ToggleSwitch x:ConnectionId='9' x:Name="theme" OnContent="Dark mode" OffContent="Bright mode"                                                                                                                                />
+                    <ToggleSwitch x:ConnectionId='10' x:Name="supervisorMode" OnContent="Supervisor mode on" OffContent="Supervisor mode off" 
+                                                                                                                                                                      />
+                </StackPanel>
+            </AppBar>
     </Page.TopAppBar>
-    <Grid x:ConnectionId='10'                                                                                                                                  Height="650">
+    <Grid x:ConnectionId='11'                                                                                                         Height="650">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
 
-        <view:GameBoard x:ConnectionId='11' x:Name="gameBoard" Grid.Column="0" VerticalAlignment="Top" Margin="0,50"/>
+        <view:GameBoard x:ConnectionId='12' x:Name="gameBoard" Grid.Column="0" VerticalAlignment="Top" Margin="0,50"/>
         <view:ControlPanel Grid.Column="1" VerticalAlignment="Top" Margin="0,50"/>
-        <ProgressBar x:ConnectionId='12' Grid.Column="0" IsIndeterminate="False"  Minimum="0" Maximum="80" Margin="27,535,27,0" VerticalAlignment="Top" Height="17"
+        <ProgressBar x:ConnectionId='13' Grid.Column="0" IsIndeterminate="False"  Minimum="0" Maximum="80" Margin="27,535,27,0" VerticalAlignment="Top" Height="17"
                      Background="LightGray" Foreground="Green" BorderBrush="Black" BorderThickness="1"
                                                                                 />
     </Grid>
