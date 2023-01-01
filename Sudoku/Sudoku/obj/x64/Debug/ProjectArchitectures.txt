@@ -1,1 +1,1 @@
-C:\Users\novoz\git-repos\Sudoku\Sudoku\Sudoku\Sudoku.csproj;x64
+C:\Users\novoz\Git_repos\Sudoku\Sudoku\Sudoku\Sudoku.csproj;x64

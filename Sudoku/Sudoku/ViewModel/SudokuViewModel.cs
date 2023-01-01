@@ -40,7 +40,7 @@ namespace Sudoku
         {
             SudokuSize = sudoku.Game.Count;
             if(e.Action==System.Collections.Specialized.NotifyCollectionChangedAction.Add && sudoku.Game.Count == 81)
-                Task.Run(() => sudoku.RandomlyDeleteCells(50));
+                Task.Run(() => sudoku.RandomlyVisitEveryCell());
         }
 
         public int SudokuSize

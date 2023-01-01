@@ -59,51 +59,67 @@ namespace Sudoku
             }
         }
 
-        public void RandomlyDeleteCells(int numOfDeletingCells)
+        /* Method start a sequence where tries eliminating the given number of cells from filled solution
+         */
+        public void RandomlyVisitEveryCell()
         {       
+            List<ObservableCollection<int>> solutions= new List<ObservableCollection<int>>();
+            List<int> requiredForUniquness= new List<int>();    
             List<int> indeces = new List<int>();
             for (int idx = 0; idx < 81; idx++)
-            {
-                indeces.Add(idx);
-            }
+            {   indeces.Add(idx);   }
             ObservableCollection<int> cpGame = new ObservableCollection<int>(game);
-
-            while (deletedIndeces.Count < numOfDeletingCells)
+            int rndIdx;
+            while (indeces.Count!=0)
             {
                 solsLists.Clear();
-                deletedIndeces.Add(indeces[rand.Next(indeces.Count)]);
-                indeces.RemoveAt(indeces.FindIndex(num => num == deletedIndeces[deletedIndeces.Count - 1]));
+                rndIdx=rand.Next(indeces.Count);
+                deletedIndeces.Add(indeces[rndIdx]);
+                indeces.RemoveAt(rndIdx);
                 foreach(int num in deletedIndeces.ToList())
                     game[num] = 0;
-
-                if (!isUnique(new List<int>(deletedIndeces)))
+                solutions = isUnique(new List<int>(deletedIndeces));
+                if (solutions.Count!=1)
                 {
+                    if (indeces.Count == 0)
+                    {
+                        
+                    }
+                    if (solutions.Count == 2)
+                    {
+                        for (int idx = 0; idx < 81; idx++)
+                        {
+                            if (solutions[solutions.Count - 1][idx] != solutions[solutions.Count - 2][idx])
+                            {
+                                requiredForUniquness.Add(idx);
+                            }
+                        }
+                    }
+                    if (requiredForUniquness.Count == 1)
+                    {
+                        game[requiredForUniquness[0]] = cpGame[requiredForUniquness[0]];
+                        deletedIndeces.RemoveAt(deletedIndeces.FindIndex(num => num == requiredForUniquness[0]));
+                        indeces.Add(deletedIndeces[deletedIndeces.Count - 1]);
+                    }
+                    requiredForUniquness.Clear();
+                    solutions.Clear();
                     game[deletedIndeces[deletedIndeces.Count - 1]] = cpGame[deletedIndeces[deletedIndeces.Count - 1]];
                     deletedIndeces.RemoveAt(deletedIndeces.Count - 1);
-                    if (deletedIndeces.Count + indeces.Count < numOfDeletingCells)
-                    {
-                        indeces.Clear();
-                        for (int idx = 0; idx < 81; idx++)
-                        { indeces.Add(idx); }
-                        int removedCellsCount = deletedIndeces.Count;
-                        int rndIdx;
-                        for (int cnt = 0; cnt < removedCellsCount / 2; cnt++)
-                        {
-                            rndIdx = rand.Next(deletedIndeces.Count);
-                            game[deletedIndeces[rndIdx]] = cpGame[deletedIndeces[rndIdx]];
-                            deletedIndeces.RemoveAt(rndIdx);  
-                        }
-                        foreach (int idx in deletedIndeces)
-                        { indeces.RemoveAt(indeces.FindIndex(num => num == idx)); }
-                    }
                 }
+
+                solutions.Clear();
             }
             game = cpGame;
             OnCollectionChanged(new NotifyCollectionChangedEventArgs(NotifyCollectionChangedAction.Reset));
         }
 
-        private bool isUnique(List<int> emptyCells)
+        /* Start a sequence which tries to solve a Sudoku
+         * Param1: the empty cells which we have to fill up to find solution(s)
+         * Ret: if there was only one solution the Sudoku puzzle is proper
+         */
+        private List<ObservableCollection<int>> isUnique(List<int> emptyCells)
         {
+            List<ObservableCollection<int>> solutions= new List<ObservableCollection<int>>();
             List<List<int>> numOfPossibleSols;
             List<int> filledCells = new List<int>();
             int leastSolIdx;
@@ -137,7 +153,10 @@ namespace Sudoku
                 }
                 // We find a solution
                 if (filledCells.Count == numOfEmptyCells)
-                { numOfSolutions++; }
+                { 
+                    numOfSolutions++;
+                    solutions.Add(new ObservableCollection<int>(game));
+                }
                 // If we find a solution and there is another possible solutions
                 if (isOtherPossiblity)
                 { 
@@ -146,12 +165,14 @@ namespace Sudoku
                     { game[filledCells[filledCells.Count - 1]] = GenerateOKNumber(); }
                 }
             }
-            if (numOfSolutions == 1)
-                return true;
-            else
-                return false;
+            return solutions;
         }
 
+        /* Stepping back in the process of filling up the Sudoku with numbers
+         * Param1: the already eliminatied cells
+         * Param2: the filled cells, which are still in the Sudoku 
+         * Ret: if we cant step back means that we tried every possibility
+         */
         private bool StepBack(ref List<int> emptyCells, ref List<int> filledCells)
         {
             sols = solsLists[solsLists.Count - 1];
@@ -168,6 +189,10 @@ namespace Sudoku
             else { return true; }
         }
 
+        /* Decide if there is a solution for the current Sudoku or not
+         * Param1: list of the empty cells' solutions 
+         * Comment: it's unsolveable if a position exists where the number of possible solutions are zero
+         */
         private bool isThereSolution(List<List<int>> lPossibleSolutions)
         {
             foreach (List<int> numOfSolutions in lPossibleSolutions)
@@ -180,6 +205,9 @@ namespace Sudoku
             return true;
         }
 
+        /* Returns a list which contains every possible solutions for the given (empty) cells
+         * Param1: the empty cells, which we want to calculate
+         */
         private List<List<int>> SearchAllPossibleSolutions(List<int> emptyCells)
         {
             List<List<int>> lPossibleSolutions = new List<List<int>>();
@@ -192,6 +220,9 @@ namespace Sudoku
             return lPossibleSolutions;
         }
 
+        /*  Returns every possible solution for the given cell
+         *  param1: the ID of the cell 
+         */
         private void CalculateGoodNums(int id)
         {
             for (int num = 1; num < 10; num++)
@@ -203,6 +234,8 @@ namespace Sudoku
             CheckColumn(id);
         }
 
+        /*  Randomly generate a valid number
+         */
         private int GenerateOKNumber()
         {
             int val = sols[rand.Next(sols.Count)];
@@ -210,6 +243,7 @@ namespace Sudoku
             return val;
         }
 
+        // ---------------------------------     Basic functions to check Sudoku validity        ---------------------------------- //
         private void CheckRow(int id)
         {
             try
